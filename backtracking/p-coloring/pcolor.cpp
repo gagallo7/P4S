@@ -43,26 +43,30 @@ void viability ( int k, vector < int >& x, vector < int >& cor, int p, vector < 
 
     for (int i = 0; i < k; i++) {
         if (adj[k][i] == 1) {
-            cor[ x[i] ] = 0;
+            cor[ x[i] ] = -1;
         }
     }
 }
 
 void backTrack ( int k, vector < int >& x, vector < int >& cor, int n, int p, vector < vector < int > > adj ) {
+
    viability ( k, x, cor, p, adj );
 
    for ( int i = 0; i < p; i++ ) {
        if ( cor[i] == 1 ) {
            x[k] = i;
+
+           if ( x[k] == -1 )
+               return;
+
+           if ( k == n-1 ) {
+               printSol ( x );
+           }
+           else
+
+               backTrack ( k + 1, x, cor, n, p, adj );
        }
    }
-    
-   if ( k == n-1 ) {
-       printSol ( x );
-   }
-   else
-
-   backTrack ( k + 1, x, cor, n, p, adj );
 }
 
 int main (int argc, char *argv[]) {
@@ -75,12 +79,16 @@ int main (int argc, char *argv[]) {
     int n = atoi(argv[1]); 
     int p = atoi(argv[2]);
 
-    vector < int > x (n);
+    vector < int > x (n,-1);
     vector < int > cor (p);
     vector < vector < int > > adj;
 
+    cout << "Insert the graph data..." << endl;
+    cout << "First line: <#vertex> <#edge>" << endl;
+    cout << "Others #edge lines are non-directed edges: <vertex number a> <vertex number b>" << endl;
     readGraph(adj);
 
+    cout << "And here is (are) the possible answer(s)..." << endl;
     backTrack (0, x, cor, n, p, adj);
 
     return 0;
