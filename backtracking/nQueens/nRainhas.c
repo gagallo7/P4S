@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define n 25
+#define n 14
 
 int count = 0;
 
@@ -46,7 +46,7 @@ void nRainhas (int r[], int l, int k) {
 		r[k] = i;
 
 		if ( k == n-1 && viavel(r, k) ) {
-				imprimeSol(r);
+		//		imprimeSol(r);
 				count++;
 		}
 		if ( viavel(r, k) ) {

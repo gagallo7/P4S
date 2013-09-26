@@ -14,15 +14,16 @@ enum { Complete, Ineficiente, Inviavel, Partial };
 #include "Instance.h"
 #include <set>
 
+void printSet ( std::set < int > );
 class PartialSolution {
 private:
+    
+public:
     long double value; //The value of the partial selected sets
     long double upperBound; //A primal bound value
     long double lowerBound; //A dual bound value
-    
-public:
 	long double showLB ();
-	void atualizaLowerBound ( std::vector < Set > );
+	void atualizaBounds ( std::vector < Set > );
 	std::set < int > conj;
 	int status;
     PartialSolution();//X

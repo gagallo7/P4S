@@ -5,76 +5,151 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 Complete	PartialSolution.h	/^enum { Complete, Ineficiente, Inviavel, Partial };$/;"	e	enum:__anon1
+Complete	tuplaFixa/PartialSolution.h	/^enum { Complete, Ineficiente, Inviavel, Partial };$/;"	e	enum:__anon2
 HEAP_H	Heap.h	9;"	d
+HEAP_H	tuplaFixa/Heap.h	9;"	d
 Heap	Heap.cpp	/^Heap<T>::Heap() {$/;"	f	class:Heap
 Heap	Heap.cpp	/^Heap<T>::Heap(const Heap& orig) {$/;"	f	class:Heap
 Heap	Heap.h	/^class Heap {$/;"	c
+Heap	tuplaFixa/Heap.cpp	/^Heap<T>::Heap() {$/;"	f	class:Heap
+Heap	tuplaFixa/Heap.cpp	/^Heap<T>::Heap(const Heap& orig) {$/;"	f	class:Heap
+Heap	tuplaFixa/Heap.h	/^class Heap {$/;"	c
 INSTANCE_H	Instance.h	9;"	d
+INSTANCE_H	tuplaFixa/Instance.h	9;"	d
 Ineficiente	PartialSolution.h	/^enum { Complete, Ineficiente, Inviavel, Partial };$/;"	e	enum:__anon1
+Ineficiente	tuplaFixa/PartialSolution.h	/^enum { Complete, Ineficiente, Inviavel, Partial };$/;"	e	enum:__anon2
 Instance	Instance.cpp	/^Instance::Instance() {$/;"	f	class:Instance
 Instance	Instance.cpp	/^Instance::Instance(const Instance& orig) {$/;"	f	class:Instance
 Instance	Instance.h	/^class Instance {$/;"	c
+Instance	tuplaFixa/Instance.cpp	/^Instance::Instance() {$/;"	f	class:Instance
+Instance	tuplaFixa/Instance.cpp	/^Instance::Instance(const Instance& orig) {$/;"	f	class:Instance
+Instance	tuplaFixa/Instance.h	/^class Instance {$/;"	c
 Inviavel	PartialSolution.h	/^enum { Complete, Ineficiente, Inviavel, Partial };$/;"	e	enum:__anon1
+Inviavel	tuplaFixa/PartialSolution.h	/^enum { Complete, Ineficiente, Inviavel, Partial };$/;"	e	enum:__anon2
 NODE_H	Node.h	9;"	d
+NODE_H	tuplaFixa/Node.h	9;"	d
 Node	Node.cpp	/^Node<T>::Node() {$/;"	f	class:Node
 Node	Node.cpp	/^Node<T>::Node(T nodeSol_) {$/;"	f	class:Node
 Node	Node.cpp	/^Node<T>::Node(const Node& orig) {$/;"	f	class:Node
 Node	Node.h	/^class Node {$/;"	c
+Node	tuplaFixa/Node.cpp	/^Node<T>::Node() {$/;"	f	class:Node
+Node	tuplaFixa/Node.cpp	/^Node<T>::Node(T nodeSol_) {$/;"	f	class:Node
+Node	tuplaFixa/Node.cpp	/^Node<T>::Node(const Node& orig) {$/;"	f	class:Node
+Node	tuplaFixa/Node.h	/^class Node {$/;"	c
 Partial	PartialSolution.h	/^enum { Complete, Ineficiente, Inviavel, Partial };$/;"	e	enum:__anon1
+Partial	tuplaFixa/PartialSolution.h	/^enum { Complete, Ineficiente, Inviavel, Partial };$/;"	e	enum:__anon2
 PartialSolution	PartialSolution.cpp	/^PartialSolution::PartialSolution () {$/;"	f	class:PartialSolution
 PartialSolution	PartialSolution.cpp	/^PartialSolution::PartialSolution (const PartialSolution& orig) {$/;"	f	class:PartialSolution
 PartialSolution	PartialSolution.h	/^class PartialSolution {$/;"	c
+PartialSolution	tuplaFixa/PartialSolution.cpp	/^PartialSolution::PartialSolution () {$/;"	f	class:PartialSolution
+PartialSolution	tuplaFixa/PartialSolution.cpp	/^PartialSolution::PartialSolution (const PartialSolution& orig) {$/;"	f	class:PartialSolution
+PartialSolution	tuplaFixa/PartialSolution.h	/^class PartialSolution {$/;"	c
 SET_H	Set.h	9;"	d
+SET_H	tuplaFixa/Set.h	9;"	d
 SOLUCAO_H	PartialSolution.h	9;"	d
+SOLUCAO_H	tuplaFixa/PartialSolution.h	9;"	d
 Set	Set.cpp	/^Set::Set() {$/;"	f	class:Set
 Set	Set.cpp	/^Set::Set(const Set& orig) {$/;"	f	class:Set
 Set	Set.h	/^class Set {$/;"	c
+Set	tuplaFixa/Set.cpp	/^Set::Set() {$/;"	f	class:Set
+Set	tuplaFixa/Set.cpp	/^Set::Set(const Set& orig) {$/;"	f	class:Set
+Set	tuplaFixa/Set.h	/^class Set {$/;"	c
 atualizaLowerBound	PartialSolution.cpp	/^void PartialSolution::atualizaLowerBound ( vector < Set > sets ) {$/;"	f	class:PartialSolution
+atualizaLowerBound	tuplaFixa/PartialSolution.cpp	/^void PartialSolution::atualizaLowerBound ( vector < Set > sets ) {$/;"	f	class:PartialSolution
 conj	PartialSolution.h	/^	std::set < int > conj;$/;"	m	class:PartialSolution
+conj	tuplaFixa/PartialSolution.h	/^	std::set < int > conj;$/;"	m	class:PartialSolution
 deleteHeap	Heap.cpp	/^void Heap<T>::deleteHeap(Node<T>* n) {$/;"	f	class:Heap
+deleteHeap	tuplaFixa/Heap.cpp	/^void Heap<T>::deleteHeap(Node<T>* n) {$/;"	f	class:Heap
 deleteTop	Heap.cpp	/^void Heap<T>::deleteTop() {$/;"	f	class:Heap
+deleteTop	tuplaFixa/Heap.cpp	/^void Heap<T>::deleteTop() {$/;"	f	class:Heap
 diff	main.cpp	/^set < int > diff ( set < int > A, set < int > B ) {$/;"	f
+diff	tuplaFixa/main.cpp	/^set < int > diff ( set < int > A, set < int > B ) {$/;"	f
 elements	Set.h	/^    std::vector<int> elements;$/;"	m	class:Set
+elements	tuplaFixa/Set.h	/^    std::vector<int> elements;$/;"	m	class:Set
 empty	Heap.cpp	/^bool Heap<T>::empty() {$/;"	f	class:Heap
+empty	tuplaFixa/Heap.cpp	/^bool Heap<T>::empty() {$/;"	f	class:Heap
 father	Node.h	/^    Node *father;$/;"	m	class:Node
+father	tuplaFixa/Node.h	/^    Node *father;$/;"	m	class:Node
 feasibleSolution	Instance.cpp	/^bool Instance::feasibleSolution(int sol[]){$/;"	f	class:Instance
+feasibleSolution	tuplaFixa/Instance.cpp	/^bool Instance::feasibleSolution(int sol[]){$/;"	f	class:Instance
 findLeaf	Heap.cpp	/^Node<T>* Heap<T>::findLeaf() {$/;"	f	class:Heap
+findLeaf	tuplaFixa/Heap.cpp	/^Node<T>* Heap<T>::findLeaf() {$/;"	f	class:Heap
 head	Heap.h	/^    Node<T> *head;$/;"	m	class:Heap
+head	tuplaFixa/Heap.h	/^    Node<T> *head;$/;"	m	class:Heap
 heapfyBottomUp	Heap.cpp	/^void Heap<T>::heapfyBottomUp(Node<T>* n) {$/;"	f	class:Heap
+heapfyBottomUp	tuplaFixa/Heap.cpp	/^void Heap<T>::heapfyBottomUp(Node<T>* n) {$/;"	f	class:Heap
 heapfyTopDown	Heap.cpp	/^void Heap<T>::heapfyTopDown(Node<T>* n) {$/;"	f	class:Heap
+heapfyTopDown	tuplaFixa/Heap.cpp	/^void Heap<T>::heapfyTopDown(Node<T>* n) {$/;"	f	class:Heap
 inOrderPrint	Heap.cpp	/^void Heap<T>::inOrderPrint(Node<T>* n, int level) {$/;"	f	class:Heap
+inOrderPrint	tuplaFixa/Heap.cpp	/^void Heap<T>::inOrderPrint(Node<T>* n, int level) {$/;"	f	class:Heap
 insert	Heap.cpp	/^void Heap<T>::insert(T p) {$/;"	f	class:Heap
+insert	tuplaFixa/Heap.cpp	/^void Heap<T>::insert(T p) {$/;"	f	class:Heap
 k	Instance.h	/^    int k;$/;"	m	class:Instance
+k	tuplaFixa/Instance.h	/^    int k;$/;"	m	class:Instance
 lchild	Node.h	/^    Node *lchild;$/;"	m	class:Node
+lchild	tuplaFixa/Node.h	/^    Node *lchild;$/;"	m	class:Node
 lowerBound	PartialSolution.h	/^    long double lowerBound; \/\/A dual bound value$/;"	m	class:PartialSolution
+lowerBound	tuplaFixa/PartialSolution.h	/^    long double lowerBound; \/\/A dual bound value$/;"	m	class:PartialSolution
 main	main.cpp	/^int main () {$/;"	f
+main	tuplaFixa/main.cpp	/^int main () {$/;"	f
 nodeSol	Node.h	/^    T nodeSol;$/;"	m	class:Node
+nodeSol	tuplaFixa/Node.h	/^    T nodeSol;$/;"	m	class:Node
 numElemUnion	main.cpp	/^int numElemUnion (vector < int > a, vector < int > b ) {$/;"	f
+numElemUnion	tuplaFixa/main.cpp	/^int numElemUnion (vector < int > a, vector < int > b ) {$/;"	f
 numberElements	Instance.h	/^    int numberElements; \/\/Number of elements to be covered from 1...numberElements$/;"	m	class:Instance
+numberElements	tuplaFixa/Instance.h	/^    int numberElements; \/\/Number of elements to be covered from 1...numberElements$/;"	m	class:Instance
 numberSets	Instance.h	/^    int numberSets; \/\/Number of sets of the instance$/;"	m	class:Instance
+numberSets	tuplaFixa/Instance.h	/^    int numberSets; \/\/Number of sets of the instance$/;"	m	class:Instance
 operator !=	PartialSolution.cpp	/^bool PartialSolution::operator!=(const PartialSolution &p) const {$/;"	f	class:PartialSolution
+operator !=	tuplaFixa/PartialSolution.cpp	/^bool PartialSolution::operator!=(const PartialSolution &p) const {$/;"	f	class:PartialSolution
 operator <	PartialSolution.cpp	/^bool PartialSolution::operator<(const PartialSolution &p) const {$/;"	f	class:PartialSolution
+operator <	tuplaFixa/PartialSolution.cpp	/^bool PartialSolution::operator<(const PartialSolution &p) const {$/;"	f	class:PartialSolution
 operator <<	PartialSolution.cpp	/^std::ostream & operator<<(std::ostream & os, const PartialSolution &p) {$/;"	f
+operator <<	tuplaFixa/PartialSolution.cpp	/^std::ostream & operator<<(std::ostream & os, const PartialSolution &p) {$/;"	f
 operator <=	PartialSolution.cpp	/^bool PartialSolution::operator<=(const PartialSolution &p) const {$/;"	f	class:PartialSolution
+operator <=	tuplaFixa/PartialSolution.cpp	/^bool PartialSolution::operator<=(const PartialSolution &p) const {$/;"	f	class:PartialSolution
 operator =	PartialSolution.cpp	/^PartialSolution& PartialSolution::operator=(const PartialSolution &orig) {$/;"	f	class:PartialSolution
+operator =	tuplaFixa/PartialSolution.cpp	/^PartialSolution& PartialSolution::operator=(const PartialSolution &orig) {$/;"	f	class:PartialSolution
 operator ==	PartialSolution.cpp	/^bool PartialSolution::operator==(const PartialSolution &p) const {$/;"	f	class:PartialSolution
+operator ==	tuplaFixa/PartialSolution.cpp	/^bool PartialSolution::operator==(const PartialSolution &p) const {$/;"	f	class:PartialSolution
 operator >	PartialSolution.cpp	/^bool PartialSolution::operator>(const PartialSolution &p) const {$/;"	f	class:PartialSolution
+operator >	tuplaFixa/PartialSolution.cpp	/^bool PartialSolution::operator>(const PartialSolution &p) const {$/;"	f	class:PartialSolution
 operator >=	PartialSolution.cpp	/^bool PartialSolution::operator>=(const PartialSolution &p) const {$/;"	f	class:PartialSolution
+operator >=	tuplaFixa/PartialSolution.cpp	/^bool PartialSolution::operator>=(const PartialSolution &p) const {$/;"	f	class:PartialSolution
 print	Heap.cpp	/^void Heap<T>::print() {$/;"	f	class:Heap
+print	tuplaFixa/Heap.cpp	/^void Heap<T>::print() {$/;"	f	class:Heap
 printInstance	Instance.cpp	/^void Instance::printInstance(){$/;"	f	class:Instance
+printInstance	tuplaFixa/Instance.cpp	/^void Instance::printInstance(){$/;"	f	class:Instance
 randDouble	Heap.cpp	/^double Heap<T>::randDouble() {$/;"	f	class:Heap
+randDouble	tuplaFixa/Heap.cpp	/^double Heap<T>::randDouble() {$/;"	f	class:Heap
 rchild	Node.h	/^    Node *rchild;$/;"	m	class:Node
+rchild	tuplaFixa/Node.h	/^    Node *rchild;$/;"	m	class:Node
 readInstance	Instance.cpp	/^void Instance::readInstance(){$/;"	f	class:Instance
+readInstance	tuplaFixa/Instance.cpp	/^void Instance::readInstance(){$/;"	f	class:Instance
 sets	Instance.h	/^    std::vector<Set> sets; \/\/The sets of the instance$/;"	m	class:Instance
+sets	tuplaFixa/Instance.h	/^    std::vector<Set> sets; \/\/The sets of the instance$/;"	m	class:Instance
 showLB	PartialSolution.cpp	/^long double PartialSolution::showLB () {$/;"	f	class:PartialSolution
+showLB	tuplaFixa/PartialSolution.cpp	/^long double PartialSolution::showLB () {$/;"	f	class:PartialSolution
 size	Set.h	/^    int size;$/;"	m	class:Set
+size	tuplaFixa/Set.h	/^    int size;$/;"	m	class:Set
 status	PartialSolution.h	/^	int status;$/;"	m	class:PartialSolution
+status	tuplaFixa/PartialSolution.h	/^	int status;$/;"	m	class:PartialSolution
 top	Heap.cpp	/^T Heap<T>::top() {$/;"	f	class:Heap
+top	tuplaFixa/Heap.cpp	/^T Heap<T>::top() {$/;"	f	class:Heap
+totalElem	main.cpp	/^int totalElem ( set < int > a, set < int > b, vector < Set > sets ) {$/;"	f
 upperBound	PartialSolution.h	/^    long double upperBound; \/\/A primal bound value$/;"	m	class:PartialSolution
+upperBound	tuplaFixa/PartialSolution.h	/^    long double upperBound; \/\/A primal bound value$/;"	m	class:PartialSolution
 value	PartialSolution.h	/^    long double value; \/\/The value of the partial selected sets$/;"	m	class:PartialSolution
 value	Set.h	/^    long double value;$/;"	m	class:Set
+value	tuplaFixa/PartialSolution.h	/^    long double value; \/\/The value of the partial selected sets$/;"	m	class:PartialSolution
+value	tuplaFixa/Set.h	/^    long double value;$/;"	m	class:Set
 ~Heap	Heap.cpp	/^Heap<T>::~Heap() {$/;"	f	class:Heap
+~Heap	tuplaFixa/Heap.cpp	/^Heap<T>::~Heap() {$/;"	f	class:Heap
 ~Instance	Instance.cpp	/^Instance::~Instance() {$/;"	f	class:Instance
+~Instance	tuplaFixa/Instance.cpp	/^Instance::~Instance() {$/;"	f	class:Instance
 ~Node	Node.cpp	/^Node<T>::~Node() {$/;"	f	class:Node
+~Node	tuplaFixa/Node.cpp	/^Node<T>::~Node() {$/;"	f	class:Node
 ~PartialSolution	PartialSolution.cpp	/^PartialSolution::~PartialSolution() {$/;"	f	class:PartialSolution
+~PartialSolution	tuplaFixa/PartialSolution.cpp	/^PartialSolution::~PartialSolution() {$/;"	f	class:PartialSolution
 ~Set	Set.cpp	/^Set::~Set() {$/;"	f	class:Set
+~Set	tuplaFixa/Set.cpp	/^Set::~Set() {$/;"	f	class:Set

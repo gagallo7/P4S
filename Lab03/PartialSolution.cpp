@@ -4,6 +4,17 @@
 
 using namespace std;
 
+void printSet ( set < int > A ) {
+    set < int >::iterator si;
+
+    cout << endl << "Set: ";
+    for ( si = A.begin(); si != A.end(); si++ ) {
+        cout << *si << " ";
+    }
+    cout << endl;
+}
+
+
 // 4 estados: inviavel, viavel, parcial, limitado
 PartialSolution::PartialSolution () {
 	this->status = Partial;
@@ -27,11 +38,20 @@ PartialSolution::PartialSolution (const PartialSolution& orig) {
 	this->conj = orig.conj;
 }
 
+PartialSolution& PartialSolution::operator=(const PartialSolution &orig) {
+	this->status = orig.status;
+    this->value = orig.value;
+    this->lowerBound = orig.lowerBound;
+    this->upperBound = orig.upperBound;
+    this->conj = orig.conj;
+    return *this;
+}
+
 long double PartialSolution::showLB () {
 		return this->lowerBound;
 }
 
-void PartialSolution::atualizaLowerBound ( vector < Set > sets ) {
+void PartialSolution::atualizaBounds ( vector < Set > sets ) {
 		long double valorAcc = 0;
 
 		set < int >::iterator is;
@@ -41,6 +61,13 @@ void PartialSolution::atualizaLowerBound ( vector < Set > sets ) {
 		}
 
 		this->lowerBound = valorAcc;
+
+		for ( int i = *is; i < sets.size(); i++ ) {
+				valorAcc += sets[i].value;
+		}
+
+        this->upperBound = valorAcc;
+
 }
 
 PartialSolution::~PartialSolution() {
@@ -72,19 +99,17 @@ bool PartialSolution::operator!=(const PartialSolution &p) const {
 
 }
 
-PartialSolution& PartialSolution::operator=(const PartialSolution &orig) {
-	this->status = orig.status;
-    this->value = orig.value;
-    this->lowerBound = orig.lowerBound;
-    this->upperBound = orig.upperBound;
-    return *this;
-}
-
 
 std::ostream & operator<<(std::ostream & os, const PartialSolution &p) {
     using namespace std;
+    set < int >::iterator si;
 
     os << "Solution value: " << p.value << std::endl;
     os << "Upper Bound: " << p.upperBound << std::endl;
     os << "Lower Bound: " << p.lowerBound << std::endl;
+    os << "#conj: " << p.conj.size() << " --";
+    for ( si = p.conj.begin(); si != p.conj.end(); si++ ) {
+        os << " " << *si; 
+    }
+    os << endl;
 }
