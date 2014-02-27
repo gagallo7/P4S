@@ -4,73 +4,75 @@ using namespace std;
 
 int main ()
 {
-		int m [1000][1000];
-		int n;
-		bool magic = true;
+    int m [1000][1000];
+    int n;
+    bool magic = true;
+    int parcial = 0;
+    int old;
 
-		cin >> n;
+    cin >> n;
 
-		for ( int i = 0; i < n; i++ )
-		{
-				for ( int j = 0; j < n; j++ )
-				{
-						cin >> m [i][j];
-				}
-		}
+    int S = n*(n*n+1)/2;
 
-		int sum = 0;
-		int acc = 0;
+    for ( int i = 0; i < n; i++ )
+    {
+        old = parcial;
+        parcial = 0;
+        for ( int j = 0; j < n; j++ )
+        {
+            int aux;
+            cin >> aux;
+            if ( aux > n*n )
+            {
+                cout << 0 << endl;
+                return 0;
+            }
+            parcial += aux;
+            m[i][j] = aux;
+        }
+        if ( parcial != S)
+        {
+            cout << 0 << endl;
+            return 0;
+        }
 
-		for ( int i = 0; i < n; i++ )
-		{
-				sum += m[i][i];
-		}
+        if ( old && old != parcial )
+        {
+            cout << 0 << endl;
+            return 0;
+        }
+    }
 
-		/*
-		for ( int i = 0; i < n; i++ )
-		{
-				acc += m[i][n-1-i];
-		}
-		*/
+    int sum = 0;
+    int acc = 0;
 
-		if ( acc != sum )
-		{
-				magic = false;
-		}
-		
+    for ( int i = 0; i < n; i++ )
+    {
+        sum += m[i][i];
+    }
 
-		for ( int i = 0; i < n && magic; i++ )
-		{
-				acc = 0;
-				for ( int j = 0; j < n; j++ )
-				{
-						acc += m[i][j];
-				}
-				if ( acc != sum )
-				{
-						magic = false;
-						break;
-				}
+    for ( int i = 0; i < n; i++ )
+    {
 
-				acc = 0;
+        acc = 0;
 
-				for ( int j = 0; j < n; j++ )
-				{
-						acc += m[j][i];
-				}
-				if ( acc != sum )
-				{
-						magic = false;
-						break;
-				}
-		}
+        for ( int j = 0; j < n; j++ )
+        {
+            acc += m[j][i];
+        }
+        if ( acc != sum )
+        {
+            magic = false;
+            break;
+        }
+    }
 
-		if ( magic == true )
-				cout << sum;
-		else
-				cout << 0;
+    if ( magic == true )
+        cout << sum;
+    else
+        cout << 0;
 
-		cout << endl;
+    cout << endl;
 
-		return 0;
+    return 0;
 }
