@@ -1,0 +1,8 @@
+data;
+
+param initial := 5000;
+
+param oneI := 1.04;
+param twoI := 1.09;
+param threeI := 1.15;
+
