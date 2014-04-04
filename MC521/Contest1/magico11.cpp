@@ -1,18 +1,21 @@
 #include <iostream>
+#include <cstdio>
 
 using namespace std;
 
 int main ()
 {
+    ios_base::sync_with_stdio ( false );
     int m [1000][1000];
     int n;
     bool magic = true;
     int parcial = 0;
     int old;
 
-    cin >> n;
+    //cin >> n;
+    scanf ( " %d", &n  );
 
-    int S = n*(n*n+1)/2;
+    long long int S = n*(n*n+1)/2;
 
     for ( int i = 0; i < n; i++ )
     {
@@ -21,10 +24,12 @@ int main ()
         for ( int j = 0; j < n; j++ )
         {
             int aux;
-            cin >> aux;
+            //cin >> aux;
+            scanf ( " %d", &aux );
             if ( aux > n*n )
             {
-                cout << 0 << endl;
+                //cout << 0 << endl;
+                printf ( "0\n" );
                 return 0;
             }
             parcial += aux;
@@ -32,13 +37,15 @@ int main ()
         }
         if ( parcial != S)
         {
-            cout << 0 << endl;
+            //cout << 0 << endl;
+                printf ( "0\n" );
             return 0;
         }
 
         if ( old && old != parcial )
         {
-            cout << 0 << endl;
+            //cout << 0 << endl;
+                printf ( "0\n" );
             return 0;
         }
     }
@@ -68,11 +75,12 @@ int main ()
     }
 
     if ( magic == true )
-        cout << sum;
+        //cout << sum;
+        printf ( "%d", sum );
     else
-        cout << 0;
+        //cout << 0;
+        printf ( "0" );
 
-    cout << endl;
-
+    printf ( "\n" );
     return 0;
 }

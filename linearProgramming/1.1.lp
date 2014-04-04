@@ -1,77 +1,117 @@
 Problem:    1
-Rows:       24
-Columns:    24
-Non-zeros:  131
-Status:     OPTIMAL
-Objective:  investimento = 5650 (MAXimum)
+Rows:       37
+Columns:    47
+Non-zeros:  150
+Status:     UNDEFINED
+Objective:  investimento = 0 (MAXimum)
 
    No.   Row name   St   Activity     Lower bound   Upper bound    Marginal
 ------ ------------ -- ------------- ------------- ------------- -------------
-     1 s1           NS             0            -0             =          1.04 
-     2 s2           NS             0            -0             =          1.09 
-     3 s3           NS             0            -0             =          1.15 
-     4 s4[1]        NS          5000          5000             =         < eps
-     5 s4[2]        NS          5000          5000             =          0.02 
-     6 s4[3]        NS          5000          5000             =          0.02 
-     7 s4[4]        NS          5000          5000             =      0.533303 
-     8 s4[5]        NS          5000          5000             =          0.52 
-     9 s5[1]        NS             0            -0             =         < eps
-    10 s5[2]        NS             0            -0             =          0.02 
-    11 s5[3]        NS             0            -0             =         < eps
-    12 s5[4]        NS             0            -0             =         < eps
-    13 s5[5]        NS             0            -0             =         < eps
-    14 investimento B           5650                             
-    15 ano1         B              0                        5000 
-    16 ano2         B        1666.67                        5000 
-    17 ano3         B        3333.33                        5000 
-    18 ano4         NU          5000                        5000     0.0366972 
-    19 ano5         B        1416.67                        5000 
-    20 y1           B       -1666.67                          -0 
-    21 y2           NU             0                          -0          0.02 
-    22 y3           NU             0                          -0          0.02 
-    23 y4           NU             0                          -0      0.533303 
-    24 y5           NU             0                          -0          0.52 
+     1 inicioTardio B              0            -0             = 
+     2 s1           B              0            -0             = 
+     3 s2           B              0            -0             = 
+     4 s3           B              0            -0             = 
+     5 calcGasto[1] B              0            -0             = 
+     6 calcGasto[2] B              0            -0             = 
+     7 calcGasto[3] B              0            -0             = 
+     8 calcGasto[4] B              0            -0             = 
+     9 calcGasto[5] B              0            -0             = 
+    10 ano[4,3,2,1] B              0            -0             = 
+    11 ano[5,4,3,2] B              0            -0             = 
+    12 comeco       B              0          5000             = 
+    13 calcFinal[1] B              0            -0             = 
+    14 calcFinal[2] B              0            -0             = 
+    15 calcFinal[3] B              0            -0             = 
+    16 calcFinal[4] B              0            -0             = 
+    17 calcFinal[5] B              0            -0             = 
+    18 calcInicial[2,1]
+                    B              0            -0             = 
+    19 calcInicial[3,2]
+                    B              0            -0             = 
+    20 calcInicial[4,3]
+                    B              0            -0             = 
+    21 calcInicial[5,4]
+                    B              0            -0             = 
+    22 s4[1]        B              0          5000             = 
+    23 s4[2]        B              0          5000             = 
+    24 s4[3]        B              0          5000             = 
+    25 s4[4]        B              0          5000             = 
+    26 s4[5]        B              0          5000             = 
+    27 s5[1]        B              0            -0             = 
+    28 s5[2]        B              0            -0             = 
+    29 s5[3]        B              0            -0             = 
+    30 s5[4]        B              0            -0             = 
+    31 s5[5]        B              0            -0             = 
+    32 investimento B              0                             
+    33 logica[1]    B              0                          -0 
+    34 logica[2]    B              0                          -0 
+    35 logica[3]    B              0                          -0 
+    36 logica[4]    B              0                          -0 
+    37 logica[5]    B              0                          -0 
 
    No. Column name  St   Activity     Lower bound   Upper bound    Marginal
 ------ ------------ -- ------------- ------------- ------------- -------------
-     1 x[1]         NL             0             0                  -0.0310349 
-     2 x[2]         NL             0             0                  -0.0718349 
-     3 x[3]         NL             0             0                  -0.0518349 
-     4 x[4]         NL             0             0                   -0.583303 
-     5 x[5]         B              0             0               
-     6 y[1]         B              0             0               
+     1 x[1]         NL             0             0                       < eps
+     2 x[2]         NL             0             0                       < eps
+     3 x[3]         NL             0             0                       < eps
+     4 x[4]         NL             0             0                       < eps
+     5 x[5]         NL             0             0                       < eps
+     6 y[1]         NL             0             0                       < eps
      7 y[2]         NL             0             0                       < eps
-     8 y[3]         NL             0             0                       -0.02 
-     9 y[4]         B        1666.67             0               
-    10 z[2]         B        1666.67             0               
-    11 z[3]         B        1666.67             0               
-    12 sx           B              0                             
-    13 sy           B        1666.67                             
-    14 sz           B        3333.33                             
-    15 a[1]         B        1666.67                             
-    16 a[2]         B        1666.67                             
-    17 a[3]         B        1666.67                             
-    18 a[4]         B        1666.67                             
-    19 a[5]         B              0                             
-    20 itrs[1]      B              0                             
-    21 itrs[2]      B              0                             
-    22 itrs[3]      B              0                             
-    23 itrs[4]      B              0                             
-    24 itrs[5]      B        1916.67                             
+     8 y[3]         NL             0             0                       < eps
+     9 y[4]         NL             0             0                       < eps
+    10 y[5]         NL             0             0                       < eps
+    11 z[1]         NL             0             0                       < eps
+    12 z[2]         NL             0             0                       < eps
+    13 z[3]         NL             0             0                       < eps
+    14 z[4]         NL             0             0                       < eps
+    15 z[5]         NL             0             0                       < eps
+    16 sx           NF             0                                     < eps
+    17 sy           NF             0                                     < eps
+    18 sz           NF             0                                     < eps
+    19 gasto[1]     NF             0                                     < eps
+    20 gasto[2]     NF             0                                     < eps
+    21 gasto[3]     NF             0                                     < eps
+    22 gasto[4]     NF             0                                     < eps
+    23 gasto[5]     NF             0                                     < eps
+    24 rend[4]      NF             0                                     < eps
+    25 rend[5]      NF             0                                     < eps
+    26 rend[2]      NF             0                                     < eps
+    27 rend[3]      NF             0                                     < eps
+    28 inicial[1]   NF             0                                     < eps
+    29 inicial[2]   NF             0                                     < eps
+    30 inicial[3]   NF             0                                     < eps
+    31 inicial[4]   NF             0                                     < eps
+    32 inicial[5]   NF             0                                     < eps
+    33 final[1]     NF             0                                     < eps
+    34 final[2]     NF             0                                     < eps
+    35 final[3]     NF             0                                     < eps
+    36 final[4]     NF             0                                     < eps
+    37 final[5]     NF             0                                     < eps
+    38 a[1]         NF             0                                     < eps
+    39 a[2]         NF             0                                     < eps
+    40 a[3]         NF             0                                     < eps
+    41 a[4]         NF             0                                     < eps
+    42 a[5]         NF             0                                     < eps
+    43 itrs[1]      NF             0                                     < eps
+    44 itrs[2]      NF             0                                     < eps
+    45 itrs[3]      NF             0                                     < eps
+    46 itrs[4]      NF             0                                     < eps
+    47 itrs[5]      NF             0                                     < eps
 
 Karush-Kuhn-Tucker optimality conditions:
 
-KKT.PE: max.abs.err = 9.09e-13 on row 4
-        max.rel.err = 9.09e-17 on row 4
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
         High quality
 
-KKT.PB: max.abs.err = 6.00e-14 on column 5
-        max.rel.err = 6.00e-14 on column 5
-        High quality
+KKT.PB: max.abs.err = 5.00e+03 on row 12
+        max.rel.err = 1.00e+00 on row 12
+        PRIMAL SOLUTION IS INFEASIBLE
 
-KKT.DE: max.abs.err = 2.22e-16 on column 1
-        max.rel.err = 6.97e-17 on column 1
-        High quality
+KKT.DE: max.abs.err = 1.15e+00 on column 18
+        max.rel.err = 5.35e-01 on column 18
+        DUAL SOLUTION IS WRONG
 
 KKT.DB: max.abs.err = 0.00e+00 on row 0
         max.rel.err = 0.00e+00 on row 0
