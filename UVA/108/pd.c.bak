@@ -1,0 +1,217 @@
+#include<stdio.h>
+#define MAX(a,b) a > b ? a : b
+
+/*
+   int mSSrow ( int M[][], int* pb ) {
+   int x, y;
+   x = 0;
+   y = 0;
+   for ( i = j; i < n; i++ ) {
+   if ( y + M [ i ] [ j ] >= 0 ) {
+   y += M [ i ] [ j ];
+   b = i;
+   }
+   else {
+   y = 0;
+   a = i;
+   b = i;
+   }
+
+   if ( y > x ) {
+   x = y;
+ *pb = b;
+ }
+ }
+ return x;
+ }
+
+ int mSScol ( int M[][], int* pb ) {
+ int x, y;
+ x = 0;
+ y = 0;
+ for ( i = j; i < n; i++ ) {
+ if ( y + M [ i ] [ j ] >= 0 ) {
+ y += M [ i ] [ j ];
+ b = i;
+ }
+ else {
+ y = 0;
+ a = i;
+ b = i;
+ }
+
+ if ( y > x ) {
+ x = y;
+ *pb = b;
+ }
+ }
+ return x;
+ }
+ */
+
+int max5 ( int a, int b, int c, int d, int e ) {
+    int t1, t2;
+    t1 = MAX ( a , b );
+    t2 = MAX ( d , e );
+    t1 = MAX ( t1, t2 );
+    return MAX ( t1, c );
+}
+
+int max3 ( int a, int b, int c) {
+    int t1;
+    t1 = MAX ( a , b );
+    return MAX ( t1, c );
+}
+
+int main () {
+    int M [ 100 ] [ 100 ];
+    int m [ 100 ] [ 100 ];
+    int X [ 100 ] [ 100 ];
+    int Y [ 100 ] [ 100 ];
+    int n, i, j, k;
+    int x, y, a, b, c, d, e, Lx, Ly;
+
+    scanf ( " %d", &n );
+
+    for ( i = 0; i < n; i++ ) {
+        for ( j = 0; j < n; j++ ) {
+            scanf ( " %d", & M [ i ] [ j ] );
+            m [i][j] = M[i][j];
+            X [ i ] [ j ] = i;
+            Y [ i ] [ j ] = j;
+        }
+    }
+    for ( i = 0; i < n; i++ ) {
+        for ( j = 0; j < n; j++ ) {
+            printf ("%d ", m[i][j]);
+        }
+        printf ("\n");
+    }
+
+    for ( k = 0; k < n; k++ ) {
+        for ( j = 0; j < n; j++ ) {
+            x = M[k][j];
+            y = M[k][j];
+            for ( i = j+1; i < n; i++ ) {
+                if ( y + M [ k ] [ i ] >= M[k][j] ) {
+                    y += M [ k ] [ i ];
+                    b = i;
+                }
+                else {
+                    y = M[k][j];
+                    a = i;
+                    b = i;
+                }
+
+                if ( y > m[k][j] ) {
+                    /*                X [ n-1 ] [ j ] = a;*/
+                    Y [ k ] [ j ] = b;
+                    m [ k ] [ j ] = y;
+                }
+            }
+        }
+
+        /*
+        */
+        for ( j = 0; j < n; j++ ) {
+            x = M[j][k];
+            y = M[j][k];
+            for ( i = j+1; i < n; i++ ) {
+                if ( y + M [ i ] [ k ] >= M[j][k] ) {
+                    y += M [ i ] [ k ];
+                    b = i;
+                }
+                else {
+                    y = M[j][k];
+                    a = i;
+                    b = i;
+                }
+
+                if ( y > m[j][k] ) {
+                    x = y;
+                    X [ j ] [ k ] = b;
+                    m [ j ] [ k ] = y;
+                }
+            }
+        }
+    }
+    printf ( "\n" );
+    for ( i = 0; i < n; i++ ) {
+        for ( j = 0; j < n; j++ ) {
+            printf ("%d ", m[i][j]);
+        }
+        printf ("\n");
+    }
+    printf ( "\n" );
+    for ( j = 0; j < n; j++ ) {
+        printf ( "%d ", m [ n - 1 ] [ j ] );
+    }
+    printf ( "\n" );
+    for ( j = 0; j < n; j++ ) {
+        printf ( "%d ", X [ n - 1 ] [ j ] );
+    }
+    printf ( "\n" );
+    for ( j = 0; j < n; j++ ) {
+        printf ( "%d ", Y [ n - 1 ] [ j ] );
+    }
+    printf ( "\n" );
+
+    printf ( "\n" );
+    for ( j = 0; j < n; j++ ) {
+        printf ( "%d ", m [ j ] [ n - 1 ] );
+    }
+    printf ( "\n" );
+    for ( j = 0; j < n; j++ ) {
+        printf ( "%d ", X [ j ] [ n - 1 ] );
+    }
+    printf ( "\n" );
+    for ( j = 0; j < n; j++ ) {
+        printf ( "%d ", Y [ j ] [ n - 1 ] );
+    }
+    printf ( "\n" );
+
+    for ( i = n - 2; i >= 0; i-- ) {
+        for ( j = n - 2; j >= 0; j-- ) {
+        if ( i == 1 && j == 1 ) {
+            /*sleep ( 1 );*/
+        }
+            d = 0;
+            e = 0;
+            a = max3 ( m[i+1][j], m[i][j], m[i][j+1] );
+
+                Lx = X [i+1][j];
+                Ly = Y [i][j+1];
+                for ( x = i; x <= Lx; x++ )
+                    for ( y = j; y <= Ly; y++ ) {
+                        d += M[x][y];
+                        printf ( "d[%d][%d] = %d\n", x, y, d );
+                    }
+            printf ( "d[%d..%d][%d..%d] = %d\n", i, Lx, j, Ly, d );
+            a = MAX( a, d );
+            if ( a != m[i][j] ) {
+                if ( d > m[i+1][j] && d > m[i][j+1] ) {
+                    printf ( "hmm\n" );
+                    if ( d > m[i][j] ) {
+                        m[i][j] = d;
+                        X[i][j] = Lx;
+                        Y[i][j] = Ly;
+                    }
+                }
+                else {
+                    X[i][j] = Lx;
+                    Y[i][j] = Ly;
+                    if ( m [i+1][j] > m[i][j+1] ) {
+                        m[i][j] = m[i+1][j];
+                    }
+                    else {
+                        m[i][j] = m[i][j+1];
+                    }
+                }
+            }
+        }
+    }
+    printf ( "%d\n", m [0][0] );
+
+    return 0;
+}
+
