@@ -8,6 +8,8 @@ LANG: C++11
 #include <string>
 #include <list>
 #include <vector>
+#include <algorithm>
+#include <iterator>
 
 using namespace std;
 
@@ -19,227 +21,144 @@ int main() {
 
     fin >> N;
 
-    vector < pair < char, int > > veq;
-    vector < pair < char, int > > veq2;
-    list < pair < char, int > > seq;
-    list < pair < char, int > > seq2;
-    vector < int > res;
+    const int total = N;
+    int maxB = 0, maxR = 0, ws = 0;
     vector < char > bead;
-    vector < int > accFw;
-    vector < int > accBw;
-
-    char last = 0;
-    char curr;
 
     ++N;
     while ( --N )
     {
+        char curr;
         fin >> curr; 
 
-        if ( last != curr )
-        {
-            last = curr;
-            veq.push_back ( make_pair ( curr, 1 ) );
-        }
-        else
-        {
-            ++veq.back().second;
-        }
         bead.push_back ( curr );
-    }
-
-    if ( veq.size() == 1 )
-    {
-        fout << veq.front().second << endl;
-        return 0;
-    }
-
-    for ( auto s : veq )
-    {
-        cout << s.first ;
-    }
-    cout << endl;
-    for ( auto s : veq )
-    {
-        cout << s.second;
-    }
-
-    cout << endl;
-
-    for ( const auto b : bead )
-    {
-        
-    }
-    /*
-    // First bead is 'w' case
-    if ( seq.front().first == 'w' )
-    {
-        seq[1].second += seq.front().second;
-        if ( seq.back().first != 'w' )
-            seq.back().second += seq.front().second;
-        seq.pop_front();
-    }
-
-    // Last bead is 'w' case
-    if ( seq.back().first == 'w' )
-    {
-        seq[seq.size()-1].second += seq.back().second;
-        seq.front().second += seq.back().second;
-        seq.pop_back();
-    }
-
-    // First and Last beads have same color case
-    if ( seq.front().first == seq.back().first )
-    {
-        seq.front().second += seq.back().second;
-        seq.back().second += seq.front().second;
-    }
-
-    for ( size_t i = 0; i < veq.size(); ++i )
-    {
-        int left = 0, right = 0;
-        
-    }
-
-    veq2.insert ( veq2.end(), begin ( veq ) + veq.size()/2, end ( veq ) );
-    veq2.insert ( veq2.end(), begin ( veq ) , begin ( veq ) + veq.size() /2 );
-
-    seq.insert ( seq.end(), begin ( veq ) + veq.size()/2, end ( veq ) );
-    seq.insert ( seq.end(), begin ( veq ) , begin ( veq ) + veq.size() /2 );
-
-    if ( seq.front().first == 'w' )
-    {
-        auto li = begin ( seq );
-        ++li;
-        li->second += seq.front().second;
-        seq.erase ( begin ( seq ));
-    }
-    for ( auto s : seq )
-    {
-        cout << s.first << "(" << s.second << ") ";
-    }
-
-    cout << endl;
-    cout << endl;
-
-    auto itEnd = prev ( seq.end() );
-
-    // removing ww
-    auto li = begin ( seq );
-    for ( ; li != itEnd; ++li )
-    {
-        auto nx = li;
-        ++nx;
-        
-        if ( nx->first == li->first )
+        if ( curr == 'b' )
         {
-            seq2.push_back ( make_pair ( nx->first, nx->second + li->second ) );
-            if ( li != itEnd )
-                ++li;
+            ++maxB;
+        }
+        else if ( curr == 'r' )
+        {
+            ++maxR;
         }
         else
-        { 
-            seq2.push_back ( *li );
+        {
+            ++ws;
         }
     }
-    if ( li != seq.end() )
-        seq2.push_back ( *li );
 
-    for ( auto s : seq2 )
-    {
-        cout << s.first ;
-    }
-    cout << endl;
-    for ( auto s : seq2 )
-    {
-        cout << s.second;
-    }
-    
-    // Grouping
-    li = begin ( seq2 );
-    for ( ; li != seq2.end(); ++li )
-    {
-        char& now = li->first;
-        auto pv = li;
-        auto nx = li;
-        --pv;
-        ++nx;
+    bead.insert ( bead.begin(), bead.begin(), bead.end() ); 
 
-        if ( now == 'w' )
+    vector < int > countB ( bead.size(), 0 );
+    vector < int > countBr ( bead.size(), 0 );
+    vector < int > countR ( bead.size(), 0 );
+    vector < int > countRr ( bead.size(), 0 );
+
+    for ( size_t curr = 0; curr < bead.size(); ++curr )
+    {
+        const int prev = curr -1;
+        const char& b = bead [ curr ];
+        if ( b == 'b' || b == 'w' )
         {
-            if ( pv != seq2.end() )
-                pv->second += li->second;
-            if ( nx != seq2.end() )
-                nx->second += li->second;
-            if ( nx->first == pv->first )
+            if ( curr > 0 )
             {
-                pv->second -= li->second;
+                countB [curr] = countB [prev] + 1;
             }
-            li = seq2.erase ( li );
+            else
+            {
+                countB [curr] = 1;
+            }
         }
-    }
-
-    cout << endl;
-    cout << endl;
-
-    for ( auto s : seq2 )
-    {
-        cout << s.first ;
-    }
-    cout << endl;
-    for ( auto s : seq2 )
-    {
-        cout << s.second;
-    }
-
-    itEnd = prev ( seq2.end() );
-    li = begin ( seq2 );
-    for ( ; li != itEnd; ++li )
-    {
-        auto nx = li;
-        ++nx;
-        
-        while ( nx->first == li->first )
+        else
         {
-            nx->second += li->second;
-            li = seq2.erase ( li );
-            nx = li;
-            ++nx;
+            countB [curr] = 0;
+        }
+
+        if ( b == 'r' || b == 'w' )
+        {
+            if ( curr > 0 )
+            {
+                countR [curr] = countR [prev] + 1;
+            }
+            else
+            {
+                countR [curr] = 1;
+            }
+        }
+        else
+        {
+            countR [curr] = 0;
         }
     }
 
+    size_t next = bead.size();
+    size_t curr = next-1;
+    for ( auto vi = bead.rbegin(); vi != bead.rend(); ++vi )
+    {
+        const char b = *vi;
+
+        if ( b == 'b' || b == 'w' )
+        {
+            if ( next < bead.size() )
+            {
+                countBr [curr] = countBr [next] + 1;
+            }
+        }
+        else
+        {
+            countBr [curr] = 0;
+        }
+
+        if ( b == 'r' || b == 'w' )
+        {
+            if ( next < bead.size() )
+            {
+                countRr [curr] = countRr [next] + 1;
+            }
+        }
+        else
+        {
+            countRr [curr] = 0;
+        }
+        if ( curr > 0 )
+        {
+            --curr;
+        }
+        --next;
+    }
+
+
+    std::transform ( countRr.begin(), countRr.end(), countR.begin(), countRr.begin(), [] (int a, int b) { if ( a > b ) return a; return b; } );
+    std::transform ( countBr.begin(), countBr.end(), countB.begin(), countBr.begin(), [] (int a, int b) { if ( a > b ) return a; return b; } );
+
+    /*
+    std::ostream_iterator<int> out_it (std::cout," ");
+    std::ostream_iterator<char> cout_it (std::cout," ");
+    std::copy ( bead.begin(), bead.end(), cout_it );
+    cout << endl;
+    cout << endl << "B straightforward\n";
+    std::copy ( countB.begin(), countB.end(), out_it );
     cout << endl;
     cout << endl;
-
-    for ( auto s : seq2 )
-    {
-        cout << s.first ;
-    }
+    std::copy ( countR.begin(), countR.end(), out_it );
     cout << endl;
-    for ( auto s : seq2 )
-    {
-        cout << s.second;
-    }
-
-    if ( seq2.size() == 1 )
-    {
-        fout << seq2.front().second << endl;
-        return 0;
-    }
-
-    int beads = 0;
-    li = begin ( seq2 );
-    for ( ; li != itEnd; ++li )
-    {
-        auto nx = li;
-        ++nx;
-        int n = li->second + nx->second;
-        beads = max ( n, beads );
-    }
-
     cout << endl;
-    fout << beads << endl;
-  */
+    std::copy ( countBr.begin(), countBr.end(), out_it );
+    cout << endl;
+    cout << endl;
+    std::copy ( countRr.begin(), countRr.end(), out_it );
+    cout << endl;
+    */
+
+    int counter = max ( countBr[0] + countRr [1], countBr[1] + countRr[0] );
+    for ( size_t i = 1; i < bead.size()-1; ++i )
+    {
+        const int tmp = max ( countBr[i] + countRr [i+1], countBr[i+1] + countRr[i] );
+        counter = max ( counter, tmp );
+    }
+
+    counter = min ( total, counter );
+
+    fout << counter << endl;
 
     return 0;
 }
