@@ -20,5 +20,5 @@ test*
 tst*
 
 # Inputs/Outputs
-*.in
-*.out
+#*.in
+#*.out
