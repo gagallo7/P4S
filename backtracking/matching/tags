@@ -1,0 +1,22 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+INSTANCE_H	Instance.h	9;"	d
+Instance	Instance.cpp	/^Instance::Instance() {$/;"	f	class:Instance
+Instance	Instance.cpp	/^Instance::Instance(const Instance& orig) {$/;"	f	class:Instance
+Instance	Instance.h	/^class Instance {$/;"	c
+adjMatrix	Instance.h	/^    int **adjMatrix;$/;"	m	class:Instance
+allocateMatrix	Instance.cpp	/^void Instance::allocateMatrix(){$/;"	f	class:Instance
+back	matching.cpp	/^int back ( vector < int > x, int k, vector < int > V1, vector < int > V2, vector < vector < int > > E ) {$/;"	f
+domain	matching.cpp	/^set < int > domain ( vector < int > x, int k, vector < int > V1, vector < int > V2, vector < vector < int > > E ) {$/;"	f
+freeMatrix	Instance.cpp	/^void Instance::freeMatrix(){$/;"	f	class:Instance
+main	matching.cpp	/^int main () {$/;"	f
+numberVertices	Instance.h	/^    int numberVertices; \/\/Number of vertices in the graph$/;"	m	class:Instance
+printInstance	Instance.cpp	/^void Instance::printInstance() {$/;"	f	class:Instance
+readInstance	Instance.cpp	/^void Instance::readInstance(\/*std::string fileName*\/) {$/;"	f	class:Instance
+s	Instance.h	/^    int s, t;$/;"	m	class:Instance
+t	Instance.h	/^    int s, t;$/;"	m	class:Instance
+~Instance	Instance.cpp	/^Instance::~Instance() {$/;"	f	class:Instance
