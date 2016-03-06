@@ -267,4 +267,4 @@ augroup END
 
 " Non ascii chars highlighting
 syntax match nonascii "[^\x00-\x7F]"
-highlight nonascii guibg=Red ctermbg=2 termbg=2
+highlight nonascii guibg=Red ctermbg=2
