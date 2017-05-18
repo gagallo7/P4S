@@ -1,40 +1,3 @@
-"Geral"
-set number
-set pastetoggle=<F2>
-:filetype on
-
-set backspace=indent,eol,start
-
-"Syntax highlighting do faiska"
-au BufRead,BufNewFile *.fsk set filetype=faiska
-au BufRead,BufNewFile *.pl set filetype=prolog
-syntax on
-au! Syntax faiska source $HOME/.vim/syntax/fsk.vim
-au! Syntax faiska source $HOME/.vim/syntax/armasm.vim
-let asmsyntax='armasm' 
-let filetype_inc='armasm'
-
-au BufRead,BufNewFile *.npl set filetype=npl
-syntax on
-au! Syntax npl source $HOME/.vim/syntax/npl.vim
-
-au BufRead,BufNewFile *.mod set filetype=gmpl
-syntax on
-au! Syntax gmpl source $HOME/.vim/syntax/gmpl.vim
-
-"Syntax highlighting do archc"
-au BufRead,BufNewFile *.ac set filetype=archc
-au! Syntax archc source $HOME/.vim/syntax/archc.vim
-
-"Syntax highlighting do OpenCL"
-au BufRead,BufNewFile *.cl set filetype=opencl
-au! Syntax opencl source $HOME/.vim/syntax/opencl.vim
-
-"Para o python"
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd BufRead *.py im :<CR> :<CR><TAB>
-
-
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -68,6 +31,8 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 "
 " Favorite Plugins
 Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-sleuth'
+Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-sensible'
 Plugin 'xuhdev/SingleCompile'
 Plugin 'Valloric/YouCompleteMe'
@@ -78,29 +43,29 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'xolox/vim-session'
+"Plugin 'xolox/vim-session'
 "
 "html
-Plugin 'isnowfy/python-vim-instant-markdown'
-Plugin 'jtratner/vim-flavored-markdown'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'amirh/HTML-AutoCloseTag'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'gorodinskiy/vim-coloresque'
-Plugin 'tpope/vim-haml'
-Plugin 'mattn/emmet-vim'
-Plugin 'scrooloose/syntastic'
+"Plugin 'isnowfy/python-vim-instant-markdown'
+"Plugin 'jtratner/vim-flavored-markdown'
+"Plugin 'suan/vim-instant-markdown'
+"Plugin 'amirh/HTML-AutoCloseTag'
+"Plugin 'hail2u/vim-css3-syntax'
+"Plugin 'gorodinskiy/vim-coloresque'
+"Plugin 'tpope/vim-haml'
+"Plugin 'mattn/emmet-vim'
+"Plugin 'scrooloose/syntastic'
 
 "Colors!!!
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
 
 " Laravel
-Plugin 'xsbeats/vim-blade'
-Bundle 'chrisgillis/vim-bootstrap3-snippets'
-Plugin 'xolox/vim-misc'
-Plugin 'StanAngeloff/php.vim' 
-Plugin 'arnaud-lb/vim-php-namespace'
+"Plugin 'xsbeats/vim-blade'
+"Bundle 'chrisgillis/vim-bootstrap3-snippets'
+"Plugin 'xolox/vim-misc'
+"Plugin 'StanAngeloff/php.vim' 
+"Plugin 'arnaud-lb/vim-php-namespace'
 
 " Track the engine.
 Plugin 'SirVer/ultisnips'
@@ -135,6 +100,35 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+"Geral"
+set number
+set pastetoggle=<F2>
+:filetype on
+
+set backspace=indent,eol,start
+
+au BufRead,BufNewFile *.npl set filetype=npl
+syntax on
+au! Syntax npl source $HOME/.vim/syntax/npl.vim
+
+au BufRead,BufNewFile *.mod set filetype=gmpl
+syntax on
+au! Syntax gmpl source $HOME/.vim/syntax/gmpl.vim
+
+"Syntax highlighting do archc"
+au BufRead,BufNewFile *.ac set filetype=archc
+au! Syntax archc source $HOME/.vim/syntax/archc.vim
+
+"Syntax highlighting do OpenCL"
+au BufRead,BufNewFile *.cl set filetype=opencl
+au! Syntax opencl source $HOME/.vim/syntax/opencl.vim
+
+"Para o python"
+autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd BufRead *.py im :<CR> :<CR><TAB>
+
+
 
 let g:tex_flavor='latex'
 set <m-i>=i
