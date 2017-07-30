@@ -6,13 +6,7 @@ set pastetoggle=<F2>
 set backspace=indent,eol,start
 
 "Syntax highlighting do faiska"
-au BufRead,BufNewFile *.fsk set filetype=faiska
-au BufRead,BufNewFile *.pl set filetype=prolog
 syntax on
-au! Syntax faiska source $HOME/.vim/syntax/fsk.vim
-au! Syntax faiska source $HOME/.vim/syntax/armasm.vim
-let asmsyntax='armasm' 
-let filetype_inc='armasm'
 
 au BufRead,BufNewFile *.npl set filetype=npl
 syntax on
@@ -29,6 +23,9 @@ au! Syntax archc source $HOME/.vim/syntax/archc.vim
 "Syntax highlighting do OpenCL"
 au BufRead,BufNewFile *.cl set filetype=opencl
 au! Syntax opencl source $HOME/.vim/syntax/opencl.vim
+"
+"Syntax highlighting TeX°
+au BufRead,BufNewFile *.tex set spell
 
 "Para o python"
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
@@ -54,41 +51,54 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Example plugin
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'kshenoy/vim-signature'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
+"Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 " Plugin 'user/L9', {'name': 'newL9'}
+"
+" Processing
+
+Plugin 'sophacles/vim-processing'
+Plugin 'Dinduks/vim-java-get-set'
 "
 " Favorite Plugins
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-obsession'
+Plugin 'dhruvasagar/vim-procession'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'xuhdev/SingleCompile'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'rdnetto/YCM-Generator'
+Plugin 'vim-airline/vim-airline'
+
+Plugin 'jalcine/cmake.vim'
 
 "filesystem
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'xolox/vim-session'
 "
 "html
 Plugin 'isnowfy/python-vim-instant-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
-Plugin 'amirh/HTML-AutoCloseTag'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'tpope/vim-haml'
-Plugin 'mattn/emmet-vim'
+"Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/syntastic'
 
 "Colors!!!
@@ -103,6 +113,9 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'arnaud-lb/vim-php-namespace'
 
 " Track the engine.
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'tomtom/tlib_vim'
+"Plugin 'garbas/vim-snipmate'
 Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
@@ -115,11 +128,8 @@ Plugin 'vim-latex/vim-latex'
 Plugin 'beloglazov/vim-online-thesaurus'
 Plugin 'maksimr/vim-translator' 
 
-Plugin 'rbonvall/snipmate-snippets-bib'
+"Plugin 'rbonvall/snipmate-snippets-bib'
 
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -208,6 +218,9 @@ imap <F4> <Esc>mz:execute FileHeading()<cr>`zjA
 nnoremap <F12> :OnlineThesaurusCurrentWord<CR>
 nnoremap zy :OnlineThesaurusCurrentWord<CR><C-W><C-K>
 vnoremap <unique> <LocalLeader>k y:Thesaurus <C-r>"<CR>
+nnoremap <unique> <LocalLeader> yiw :tag <C-r>"<CR>
+xnoremap <unique> <LocalLeader>R :s#<C-r>"#
+nnoremap <unique> <LocalLeader>R yiw :%s#<C-r>"#
 
 " Column highlighting
 set cc=80
@@ -215,7 +228,15 @@ set cc=80
 "
 " Latex PDF
 let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode --synctex=1 $*'
+let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode -file-line-error --synctex=1 $*'
+
+function CompileXeTex()
+    let oldCompileRule=g:Tex_CompileRule_pdf
+    let g:Tex_CompileRule_pdf = 'xelatex -aux-directory=/tmp --synctex=-1 -src-specials -interaction=nonstopmode $*'
+    call Tex_RunLaTeX()
+    let g:Tex_CompileRule_pdf=oldCompileRule
+endfunction
+map <Leader>lx :<C-U>call CompileXeTex()<CR>
 
 function! SyncTexForward()
     let s:syncfile = fnamemodify(fnameescape(Tex_GetMainFileName()), ":r").".pdf"
@@ -230,8 +251,8 @@ let g:Tex_MultipleCompileFormats = 'pdf'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<C-Space>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
